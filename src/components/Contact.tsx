@@ -23,21 +23,21 @@ export function Contact() {
         <div className="reveal-up grid grid-cols-1 gap-4">
           <ContactCard
             label="EMAIL"
-            value="guilherme.cella@email.com"
-            href="mailto:guilherme.cella@email.com"
+            value="guilhermecella8@gmail.com"
+            href="mailto:guilhermecella8@gmail.com"
             accent="green"
             icon="✉"
           />
           <ContactCard
             label="LINKEDIN"
-            value="/in/guilherme-luiz-cella"
+            value="/in/guilherme-luiz-cella-b3a41935a/"
             href="https://www.linkedin.com/"
             accent="cyan"
             icon="⚡"
           />
           <ContactCard
             label="GITHUB"
-            value="github.com/guilhermecella"
+            value="github.com/guilherme-luiz-cella"
             href="https://github.com/"
             accent="yellow"
             icon="◧"
