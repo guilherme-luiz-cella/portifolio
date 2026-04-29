@@ -31,7 +31,7 @@ export function Contact() {
           <ContactCard
             label="LINKEDIN"
             value="/in/guilherme-luiz-cella-b3a41935a/"
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/guilherme-luiz-cella-b3a41935a/"
             accent="cyan"
             icon="⚡"
           />
@@ -41,6 +41,13 @@ export function Contact() {
             href="https://github.com/"
             accent="yellow"
             icon="◧"
+          />
+          <ContactCard
+            label="OWLPINE GROUP"
+            value="linkedin.com/company/owlpinegroup"
+            href="https://au.linkedin.com/company/owlpinegroup"
+            accent="magenta"
+            icon="◆"
           />
         </div>
       </div>
@@ -52,16 +59,18 @@ const accentText = {
   green: "text-neon-green text-shadow-glow-green",
   cyan: "text-neon-cyan text-shadow-glow-cyan",
   yellow: "text-neon-yellow text-shadow-glow-yellow",
+  magenta: "text-neon-magenta text-shadow-glow-magenta",
 };
 const accentBorder = {
   green: "pixel-border-green",
   cyan: "pixel-border-cyan",
   yellow: "pixel-border-yellow",
+  magenta: "pixel-border-magenta",
 };
 
 function ContactCard({
   label, value, href, accent, icon,
-}: { label: string; value: string; href: string; accent: "green" | "cyan" | "yellow"; icon: string }) {
+}: { label: string; value: string; href: string; accent: keyof typeof accentText; icon: string }) {
   return (
     <a
       href={href}

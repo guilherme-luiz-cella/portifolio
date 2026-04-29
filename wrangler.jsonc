@@ -8,7 +8,7 @@
   },
   "routes": [
     {
-      "pattern": "me.cella.website",
+      "pattern": "my.cella.website",
       "custom_domain": true
     }
   ],
