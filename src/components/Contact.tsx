@@ -1,4 +1,5 @@
 import { SectionShell } from "./SectionShell";
+import { profileLinks } from "@/lib/profile-links";
 
 export function Contact() {
   return (
@@ -24,30 +25,23 @@ export function Contact() {
           <ContactCard
             label="EMAIL"
             value="guilhermecella8@gmail.com"
-            href="mailto:guilhermecella8@gmail.com"
+            href={profileLinks.email}
             accent="green"
             icon="✉"
           />
           <ContactCard
             label="LINKEDIN"
             value="/in/guilherme-luiz-cella-b3a41935a/"
-            href="https://www.linkedin.com/in/guilherme-luiz-cella-b3a41935a/"
+            href={profileLinks.linkedin}
             accent="cyan"
             icon="⚡"
           />
           <ContactCard
             label="GITHUB"
             value="github.com/guilherme-luiz-cella"
-            href="https://github.com/"
+            href={profileLinks.github}
             accent="yellow"
             icon="◧"
-          />
-          <ContactCard
-            label="OWLPINE GROUP"
-            value="linkedin.com/company/owlpinegroup"
-            href="https://au.linkedin.com/company/owlpinegroup"
-            accent="magenta"
-            icon="◆"
           />
         </div>
       </div>
@@ -59,13 +53,11 @@ const accentText = {
   green: "text-neon-green text-shadow-glow-green",
   cyan: "text-neon-cyan text-shadow-glow-cyan",
   yellow: "text-neon-yellow text-shadow-glow-yellow",
-  magenta: "text-neon-magenta text-shadow-glow-magenta",
 };
 const accentBorder = {
   green: "pixel-border-green",
   cyan: "pixel-border-cyan",
   yellow: "pixel-border-yellow",
-  magenta: "pixel-border-magenta",
 };
 
 function ContactCard({

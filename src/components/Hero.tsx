@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { profileLinks } from "@/lib/profile-links";
 
 const FULL = "Building reliable systems with Laravel, PHP, MySQL, and APIs.";
 
@@ -49,10 +50,10 @@ export function Hero() {
             <a href="#contact" className="font-pixel text-[10px] sm:text-xs px-5 py-3 bg-card text-neon-cyan pixel-border-cyan pixel-hover">
               CONTACT ME
             </a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="font-pixel text-[10px] sm:text-xs px-5 py-3 bg-card text-neon-magenta pixel-border-magenta pixel-hover">
+            <a href={profileLinks.linkedin} target="_blank" rel="noreferrer" className="font-pixel text-[10px] sm:text-xs px-5 py-3 bg-card text-neon-magenta pixel-border-magenta pixel-hover">
               LINKEDIN
             </a>
-            <a href="https://github.com/" target="_blank" rel="noreferrer" className="font-pixel text-[10px] sm:text-xs px-5 py-3 bg-card text-neon-yellow pixel-border-yellow pixel-hover">
+            <a href={profileLinks.github} target="_blank" rel="noreferrer" className="font-pixel text-[10px] sm:text-xs px-5 py-3 bg-card text-neon-yellow pixel-border-yellow pixel-hover">
               GITHUB
             </a>
           </div>

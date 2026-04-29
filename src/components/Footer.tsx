@@ -1,3 +1,5 @@
+import { profileLinks } from "@/lib/profile-links";
+
 export function Footer() {
   return (
     <footer className="border-t-4 border-neon-green/40 bg-card">
@@ -11,9 +13,9 @@ export function Footer() {
           </div>
         </div>
         <div className="flex sm:justify-end gap-3 flex-wrap">
-          <a href="https://github.com/" target="_blank" rel="noreferrer" className="font-pixel text-[9px] px-3 py-2 bg-background text-neon-yellow pixel-border-yellow pixel-hover">GITHUB</a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="font-pixel text-[9px] px-3 py-2 bg-background text-neon-cyan pixel-border-cyan pixel-hover">LINKEDIN</a>
-          <a href="mailto:guilherme.cella@email.com" className="font-pixel text-[9px] px-3 py-2 bg-background text-neon-magenta pixel-border-magenta pixel-hover">EMAIL</a>
+          <a href={profileLinks.github} target="_blank" rel="noreferrer" className="font-pixel text-[9px] px-3 py-2 bg-background text-neon-yellow pixel-border-yellow pixel-hover">GITHUB</a>
+          <a href={profileLinks.linkedin} target="_blank" rel="noreferrer" className="font-pixel text-[9px] px-3 py-2 bg-background text-neon-cyan pixel-border-cyan pixel-hover">LINKEDIN</a>
+          <a href={profileLinks.email} className="font-pixel text-[9px] px-3 py-2 bg-background text-neon-magenta pixel-border-magenta pixel-hover">EMAIL</a>
         </div>
       </div>
       <div className="border-t-2 border-border">

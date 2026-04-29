@@ -2,9 +2,20 @@ import { SectionShell } from "./SectionShell";
 
 const PROJECTS = [
   {
-    name: "TASK MANAGEMENT API",
+    name: "OWLPINE GROUP",
     code: "LVL 01",
     accent: "green" as const,
+    summary: "A web platform for Owlpine Group with a focused public presence and clear service positioning.",
+    problem: "The business needed a professional online touchpoint that made the brand easy to discover and contact.",
+    role: "Built the web experience, structured the project presentation and connected the public project link.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind"],
+    features: ["Public landing page", "Responsive layout", "Brand presentation", "External project link"],
+    projectUrl: "https://owlpine.app/",
+  },
+  {
+    name: "TASK MANAGEMENT API",
+    code: "LVL 02",
+    accent: "cyan" as const,
     summary: "A Laravel REST API to create, update, complete and delete tasks with full validation and auth.",
     problem: "Teams needed a simple, reliable API to integrate task tracking into multiple front-ends.",
     role: "Designed schema, built endpoints, implemented auth and request validation.",
@@ -13,8 +24,8 @@ const PROJECTS = [
   },
   {
     name: "SUPPORT TICKET SYSTEM",
-    code: "LVL 02",
-    accent: "cyan" as const,
+    code: "LVL 03",
+    accent: "magenta" as const,
     summary: "Ticketing platform inspired by real technical support workflows — categories, priorities and SLAs.",
     problem: "Support teams losing context between channels and missing follow-ups.",
     role: "Built ticket lifecycle, assignment logic and notification triggers.",
@@ -23,8 +34,8 @@ const PROJECTS = [
   },
   {
     name: "DOCUMENT MANAGEMENT",
-    code: "LVL 03",
-    accent: "magenta" as const,
+    code: "LVL 04",
+    accent: "yellow" as const,
     summary: "Back-end for document uploads with metadata, permissions and status tracking per record.",
     problem: "Files scattered across folders with no audit trail or access control.",
     role: "Implemented storage layer, permissions matrix and metadata indexing.",
@@ -33,8 +44,8 @@ const PROJECTS = [
   },
   {
     name: "CRM / CLIENT SYSTEM",
-    code: "LVL 04",
-    accent: "yellow" as const,
+    code: "LVL 05",
+    accent: "green" as const,
     summary: "Lightweight CRM to manage customer records, notes, tags and quick filters for sales teams.",
     problem: "Spreadsheets couldn't keep up with growing client data and team collaboration.",
     role: "Modeled relations, built filters and search, exposed REST endpoints.",
@@ -107,12 +118,26 @@ export function Projects() {
             </div>
 
             <div className="mt-auto flex gap-2">
-              <a href="#" className="font-pixel text-[9px] px-3 py-2 bg-card text-neon-green pixel-border-green pixel-hover">
-                ▶ VIEW PROJECT
-              </a>
-              <a href="#" className="font-pixel text-[9px] px-3 py-2 bg-card text-neon-cyan pixel-border-cyan pixel-hover">
-                &lt;/&gt; CODE
-              </a>
+              {"projectUrl" in p && p.projectUrl ? (
+                <a
+                  href={p.projectUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-pixel text-[9px] px-3 py-2 bg-card text-neon-green pixel-border-green pixel-hover"
+                >
+                  ▶ VIEW PROJECT
+                </a>
+              ) : null}
+              {"codeUrl" in p && p.codeUrl ? (
+                <a
+                  href={p.codeUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-pixel text-[9px] px-3 py-2 bg-card text-neon-cyan pixel-border-cyan pixel-hover"
+                >
+                  &lt;/&gt; CODE
+                </a>
+              ) : null}
             </div>
           </article>
         ))}
