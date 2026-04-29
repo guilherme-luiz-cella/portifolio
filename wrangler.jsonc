@@ -1,0 +1,19 @@
+{
+  "name": "portfolio",
+  "compatibility_date": "2026-04-17",
+  "routes": [
+    {
+      "pattern": "me.cella.website",
+      "custom_domain": true
+    }
+  ],
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": false
+    }
+  }
+}
