@@ -10,17 +10,24 @@ interface Props {
 
 export function SectionShell({ id, label, title, accent = "cyan", children }: Props) {
   const ref = useRef<HTMLDivElement>(null);
+  const revealed = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const revealNodes = () => {
+      el.querySelectorAll<HTMLElement>(".reveal-up").forEach((n, i) => {
+        setTimeout(() => n.classList.add("in-view"), i * 80);
+      });
+    };
+
     const obs = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
-            el.querySelectorAll<HTMLElement>(".reveal-up").forEach((n, i) => {
-              setTimeout(() => n.classList.add("in-view"), i * 80);
-            });
+            revealed.current = true;
+            revealNodes();
             obs.disconnect();
           }
         }
@@ -30,6 +37,14 @@ export function SectionShell({ id, label, title, accent = "cyan", children }: Pr
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (!revealed.current) return;
+
+    ref.current?.querySelectorAll<HTMLElement>(".reveal-up").forEach((node) => {
+      node.classList.add("in-view");
+    });
+  });
 
   const accentMap = {
     green: "text-neon-green text-shadow-glow-green",

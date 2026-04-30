@@ -28,7 +28,7 @@ export function Skills() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {copy.skills.groups.map((g) => (
           <div
-            key={g.title}
+            key={g.accent}
             className={`reveal-up bg-card p-5 pixel-hover ${accentBorder[g.accent]}`}
           >
             <div className={`font-pixel text-2xl mb-3 ${accentText[g.accent]}`}>{g.icon}</div>
