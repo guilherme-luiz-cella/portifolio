@@ -30,10 +30,18 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Guilherme Luiz Cella — Back-End Developer Portfolio" },
-      { name: "description", content: "Back-End Developer building reliable systems with Laravel, PHP, MySQL and APIs. Explore projects, skills and experience." },
+      {
+        name: "description",
+        content:
+          "Back-End Developer building reliable systems with Laravel, PHP, MySQL and APIs. Explore projects, skills and experience.",
+      },
       { name: "author", content: "Guilherme Luiz Cella" },
       { property: "og:title", content: "Guilherme Luiz Cella — Back-End Developer" },
-      { property: "og:description", content: "Retro 8-bit portfolio of a Back-End Developer specialized in Laravel, PHP, MySQL and APIs." },
+      {
+        property: "og:description",
+        content:
+          "Retro 8-bit portfolio of a Back-End Developer specialized in Laravel, PHP, MySQL and APIs.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

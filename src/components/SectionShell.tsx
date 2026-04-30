@@ -56,7 +56,11 @@ export function SectionShell({ id, label, title, accent = "cyan", children }: Pr
         </h2>
         <div className="reveal-up flex gap-1 mb-12" aria-hidden>
           {Array.from({ length: 24 }).map((_, i) => (
-            <span key={i} className={`block w-2 h-2 ${dividerMap[accent]}`} style={{ opacity: 1 - i * 0.04 }} />
+            <span
+              key={i}
+              className={`block w-2 h-2 ${dividerMap[accent]}`}
+              style={{ opacity: 1 - i * 0.04 }}
+            />
           ))}
         </div>
         {children}

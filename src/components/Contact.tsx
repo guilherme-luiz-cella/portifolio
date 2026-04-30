@@ -1,43 +1,60 @@
+import { usePortfolioCopy } from "@/application/portfolio-language-context";
 import { SectionShell } from "./SectionShell";
 import { profileLinks } from "@/lib/profile-links";
 
 export function Contact() {
+  const copy = usePortfolioCopy();
+
   return (
-    <SectionShell id="contact" label="FINAL BOSS" title="START THE NEXT QUEST" accent="magenta">
+    <SectionShell
+      id="contact"
+      label={copy.contact.label}
+      title={copy.contact.title}
+      accent="magenta"
+    >
       <div className="grid md:grid-cols-2 gap-8 items-stretch">
         <div className="reveal-up bg-card p-6 sm:p-8 pixel-border-magenta">
-          <div className="font-pixel text-[10px] text-neon-yellow mb-4">▮ TRANSMISSION</div>
+          <div className="font-pixel text-[10px] text-neon-yellow mb-4">
+            ▮ {copy.contact.transmission}
+          </div>
           <h3 className="font-pixel text-base sm:text-xl text-neon-magenta text-shadow-glow-magenta mb-4">
-            LET'S BUILD<br />SOMETHING GREAT
+            {copy.contact.heading.split("\n").map((line) => (
+              <span key={line}>
+                {line}
+                <br />
+              </span>
+            ))}
           </h3>
           <p className="font-body text-base text-foreground leading-relaxed mb-6">
-            Open to back-end roles, freelance missions and collaboration on ambitious systems.
-            Reach out — I respond fast.
+            {copy.contact.body}
           </p>
           <div className="font-mono-retro text-xl space-y-2 text-foreground">
-            <div><span className="text-neon-cyan">&gt; loc:</span> Brazil — Remote OK</div>
-            <div><span className="text-neon-cyan">&gt; status:</span> <span className="text-neon-green">Available</span></div>
-            <div><span className="text-neon-cyan">&gt; reply:</span> &lt; 24h</div>
+            {copy.contact.facts.map((fact) => (
+              <div key={fact.label}>
+                <span className="text-neon-cyan">&gt; {fact.label}:</span>{" "}
+                <span className={fact.highlight ? "text-neon-green" : undefined}>{fact.value}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="reveal-up grid grid-cols-1 gap-4">
           <ContactCard
-            label="EMAIL"
+            label={copy.contact.cards.email}
             value="guilhermecella8@gmail.com"
             href={profileLinks.email}
             accent="green"
             icon="✉"
           />
           <ContactCard
-            label="LINKEDIN"
+            label={copy.contact.cards.linkedin}
             value="/in/guilherme-luiz-cella-b3a41935a/"
             href={profileLinks.linkedin}
             accent="cyan"
             icon="⚡"
           />
           <ContactCard
-            label="GITHUB"
+            label={copy.contact.cards.github}
             value="github.com/guilherme-luiz-cella"
             href={profileLinks.github}
             accent="yellow"
@@ -61,8 +78,18 @@ const accentBorder = {
 };
 
 function ContactCard({
-  label, value, href, accent, icon,
-}: { label: string; value: string; href: string; accent: keyof typeof accentText; icon: string }) {
+  label,
+  value,
+  href,
+  accent,
+  icon,
+}: {
+  label: string;
+  value: string;
+  href: string;
+  accent: keyof typeof accentText;
+  icon: string;
+}) {
   return (
     <a
       href={href}

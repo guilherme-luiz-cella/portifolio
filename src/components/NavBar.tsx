@@ -1,15 +1,10 @@
 import { useEffect, useState } from "react";
 
-const LINKS = [
-  { id: "home", label: "HOME" },
-  { id: "about", label: "ABOUT" },
-  { id: "skills", label: "SKILLS" },
-  { id: "projects", label: "PROJECTS" },
-  { id: "experience", label: "EXP" },
-  { id: "contact", label: "CONTACT" },
-];
+import { usePortfolioCopy } from "@/application/portfolio-language-context";
+import { LanguageSwitch } from "@/components/LanguageSwitch";
 
 export function NavBar() {
+  const copy = usePortfolioCopy();
   const [active, setActive] = useState("home");
   const [open, setOpen] = useState(false);
 
@@ -17,7 +12,7 @@ export function NavBar() {
     const handler = () => {
       const y = window.scrollY + 120;
       let current = "home";
-      for (const l of LINKS) {
+      for (const l of copy.nav) {
         const el = document.getElementById(l.id);
         if (el && el.offsetTop <= y) current = l.id;
       }
@@ -26,7 +21,7 @@ export function NavBar() {
     window.addEventListener("scroll", handler, { passive: true });
     handler();
     return () => window.removeEventListener("scroll", handler);
-  }, []);
+  }, [copy.nav]);
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-background/90 backdrop-blur border-b-4 border-neon-green/40">
@@ -39,35 +34,41 @@ export function NavBar() {
           GLC.dev
         </a>
 
-        <ul className="hidden md:flex items-center gap-1">
-          {LINKS.map((l) => (
-            <li key={l.id}>
-              <a
-                href={`#${l.id}`}
-                className={`font-pixel text-[10px] px-3 py-2 transition-colors ${
-                  active === l.id
-                    ? "text-neon-yellow text-shadow-glow-yellow bg-muted"
-                    : "text-foreground hover:text-neon-cyan hover:bg-muted/60"
-                }`}
-              >
-                {active === l.id ? `▶ ${l.label}` : l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden md:flex items-center gap-3">
+          <ul className="flex items-center gap-1">
+            {copy.nav.map((l) => (
+              <li key={l.id}>
+                <a
+                  href={`#${l.id}`}
+                  className={`font-pixel text-[10px] px-3 py-2 transition-colors ${
+                    active === l.id
+                      ? "text-neon-yellow text-shadow-glow-yellow bg-muted"
+                      : "text-foreground hover:text-neon-cyan hover:bg-muted/60"
+                  }`}
+                >
+                  {active === l.id ? `▶ ${l.label}` : l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <LanguageSwitch />
+        </div>
 
-        <button
-          onClick={() => setOpen((o) => !o)}
-          className="md:hidden font-pixel text-[10px] text-neon-cyan px-3 py-2 pixel-border-cyan"
-          aria-label="Toggle menu"
-        >
-          {open ? "X" : "MENU"}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitch />
+          <button
+            onClick={() => setOpen((o) => !o)}
+            className="font-pixel text-[10px] text-neon-cyan px-3 py-2 pixel-border-cyan"
+            aria-label="Toggle menu"
+          >
+            {open ? "X" : "MENU"}
+          </button>
+        </div>
       </nav>
 
       {open && (
         <ul className="md:hidden border-t-2 border-neon-green/30 bg-background">
-          {LINKS.map((l) => (
+          {copy.nav.map((l) => (
             <li key={l.id}>
               <a
                 href={`#${l.id}`}

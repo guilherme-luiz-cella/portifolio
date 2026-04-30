@@ -1,34 +1,57 @@
+import { usePortfolioCopy } from "@/application/portfolio-language-context";
 import { SectionShell } from "./SectionShell";
 
 export function About() {
+  const copy = usePortfolioCopy();
+
   return (
-    <SectionShell id="about" label="QUEST 01" title="ABOUT THE PLAYER" accent="cyan">
+    <SectionShell id="about" label={copy.about.label} title={copy.about.title} accent="cyan">
       <div className="grid md:grid-cols-3 gap-6">
         <div className="reveal-up md:col-span-2 bg-card p-6 sm:p-8 pixel-border-cyan">
-          <div className="font-pixel text-[10px] text-neon-yellow mb-4">▮ CHARACTER BIO</div>
-          <p className="font-body text-base sm:text-lg leading-relaxed text-foreground mb-4">
-            I'm a <span className="text-neon-green font-semibold">Back-End Developer</span> passionate about building
-            clean, efficient, and reliable systems. I work mainly with Laravel, PHP, MySQL, and APIs —
-            crafting the invisible engines that make web products actually work.
-          </p>
-          <p className="font-body text-base sm:text-lg leading-relaxed text-muted-foreground">
-            I also bring practical <span className="text-neon-cyan">technical support</span> experience,
-            which helps me understand real user problems and design solutions that hold up in production —
-            not just in theory.
-          </p>
+          <div className="font-pixel text-[10px] text-neon-yellow mb-4">
+            ▮ {copy.about.bioLabel}
+          </div>
+          {copy.about.paragraphs.map((paragraph, index) => (
+            <p
+              key={paragraph.highlight}
+              className={`font-body text-base sm:text-lg leading-relaxed ${
+                index === 0 ? "text-foreground mb-4" : "text-muted-foreground"
+              }`}
+            >
+              {paragraph.before}
+              <span className={index === 0 ? "text-neon-green font-semibold" : "text-neon-cyan"}>
+                {paragraph.highlight}
+              </span>
+              {paragraph.after}
+            </p>
+          ))}
         </div>
 
         <div className="reveal-up bg-card p-6 pixel-border-magenta">
-          <div className="font-pixel text-[10px] text-neon-magenta mb-4">▮ STATS</div>
+          <div className="font-pixel text-[10px] text-neon-magenta mb-4">
+            ▮ {copy.about.statsLabel}
+          </div>
           <ul className="font-mono-retro text-lg space-y-2">
-            <li className="flex justify-between"><span>CLASS</span><span className="text-neon-green">Back-End Dev</span></li>
-            <li className="flex justify-between"><span>WEAPON</span><span className="text-neon-cyan">Laravel</span></li>
-            <li className="flex justify-between"><span>SHIELD</span><span className="text-neon-yellow">MySQL</span></li>
-            <li className="flex justify-between"><span>SPECIAL</span><span className="text-neon-magenta">APIs</span></li>
-            <li className="flex justify-between"><span>STATUS</span><span className="text-neon-green animate-pulse">● ONLINE</span></li>
+            {copy.about.stats.map((stat, index) => (
+              <li key={stat.label} className="flex justify-between gap-4">
+                <span>{stat.label}</span>
+                <span className={`${statColor[index]} ${stat.pulse ? "animate-pulse" : ""}`}>
+                  {stat.pulse ? "● " : ""}
+                  {stat.value}
+                </span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
     </SectionShell>
   );
 }
+
+const statColor = [
+  "text-neon-green",
+  "text-neon-cyan",
+  "text-neon-yellow",
+  "text-neon-magenta",
+  "text-neon-green",
+] as const;

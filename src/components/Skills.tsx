@@ -1,31 +1,5 @@
+import { usePortfolioCopy } from "@/application/portfolio-language-context";
 import { SectionShell } from "./SectionShell";
-
-const GROUPS = [
-  {
-    title: "BACK-END",
-    accent: "green" as const,
-    icon: "⚙",
-    skills: ["PHP", "Laravel", "REST APIs", "MVC", "Auth", "Validation"],
-  },
-  {
-    title: "DATABASE",
-    accent: "cyan" as const,
-    icon: "▤",
-    skills: ["MySQL", "Relational Modeling", "Migrations", "Queries", "Indexing"],
-  },
-  {
-    title: "TOOLS",
-    accent: "yellow" as const,
-    icon: "✦",
-    skills: ["Git", "GitHub", "Postman", "Composer", "Docker"],
-  },
-  {
-    title: "SOFT SKILLS",
-    accent: "magenta" as const,
-    icon: "❖",
-    skills: ["Debugging", "Problem Solving", "Tech Support", "Documentation", "Communication"],
-  },
-];
 
 const accentText = {
   green: "text-neon-green text-shadow-glow-green",
@@ -47,11 +21,16 @@ const accentBar = {
 };
 
 export function Skills() {
+  const copy = usePortfolioCopy();
+
   return (
-    <SectionShell id="skills" label="INVENTORY" title="EQUIPPED TECH STACK" accent="green">
+    <SectionShell id="skills" label={copy.skills.label} title={copy.skills.title} accent="green">
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {GROUPS.map((g) => (
-          <div key={g.title} className={`reveal-up bg-card p-5 pixel-hover ${accentBorder[g.accent]}`}>
+        {copy.skills.groups.map((g) => (
+          <div
+            key={g.title}
+            className={`reveal-up bg-card p-5 pixel-hover ${accentBorder[g.accent]}`}
+          >
             <div className={`font-pixel text-2xl mb-3 ${accentText[g.accent]}`}>{g.icon}</div>
             <div className={`font-pixel text-xs mb-4 ${accentText[g.accent]}`}>{g.title}</div>
             <ul className="space-y-2">
@@ -65,7 +44,9 @@ export function Skills() {
             <div className="mt-4 h-2 w-full bg-muted">
               <div className={`h-full ${accentBar[g.accent]}`} style={{ width: "85%" }} />
             </div>
-            <div className="font-pixel text-[8px] text-muted-foreground mt-1">LV. MAX</div>
+            <div className="font-pixel text-[8px] text-muted-foreground mt-1">
+              {copy.skills.maxLevel}
+            </div>
           </div>
         ))}
       </div>
