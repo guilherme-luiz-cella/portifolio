@@ -2,10 +2,10 @@ import { SectionShell } from "./SectionShell";
 
 const PROJECTS = [
   {
-    name: "OWLPINE GROUP",
+    name: "OWLPINE",
     code: "LVL 01",
     accent: "green" as const,
-    summary: "A web platform for Owlpine Group with a focused public presence and clear service positioning.",
+    summary: "A web platform for Owlpine with a focused public presence and clear service positioning.",
     problem: "The business needed a professional online touchpoint that made the brand easy to discover and contact.",
     role: "Built the web experience, structured the project presentation and connected the public project link.",
     tech: ["React", "TypeScript", "Vite", "Tailwind"],

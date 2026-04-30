@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <style>
+    .screen { fill: #07110d; }
+    .frame { fill: #39ff14; animation: framePulse 1.2s steps(2, end) infinite; }
+    .shadow { fill: #00f5ff; animation: shadowShift 0.8s steps(2, end) infinite; }
+    .spark { fill: #ff2bd6; animation: sparkBlink 0.6s steps(2, end) infinite; }
+    .letter { fill: #f7ff3c; animation: letterBlink 1s steps(2, end) infinite; }
+
+    @keyframes framePulse {
+      0%, 100% { fill: #39ff14; }
+      50% { fill: #00f5ff; }
+    }
+
+    @keyframes shadowShift {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(2px, 2px); }
+    }
+
+    @keyframes sparkBlink {
+      0%, 40% { opacity: 1; }
+      41%, 100% { opacity: 0; }
+    }
+
+    @keyframes letterBlink {
+      0%, 100% { fill: #f7ff3c; }
+      50% { fill: #ffffff; }
+    }
+  </style>
+
+  <rect width="64" height="64" class="screen" />
+  <path class="shadow" d="M14 10h36v6h4v34h-6v4H12v-6H8V14h6z" />
+  <path class="frame" d="M10 8h38v6h6v38h-6v6H10v-6H4V14h6z" />
+  <rect x="14" y="18" width="36" height="28" class="screen" />
+
+  <path class="letter" d="M18 24h14v4H22v12h10v-4h-6v-4h10v12H18z" />
+  <path class="letter" d="M40 24h8v4h-6v12h6v4h-8v-4h-4V28h4z" />
+
+  <rect x="8" y="8" width="4" height="4" class="spark" />
+  <rect x="52" y="52" width="4" height="4" class="spark" />
+</svg>
