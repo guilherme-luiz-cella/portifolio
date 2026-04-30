@@ -20,8 +20,16 @@ describe("portfolio copy", () => {
   it("returns translated labels for Brazilian Portuguese", () => {
     const copy = getPortfolioCopy("pt-BR");
 
-    expect(copy.hero.primaryAction).toBe("APERTE START");
+    expect(copy.hero.primaryAction).toBe("ERGA O ESCUDO");
     expect(copy.projects.problem).toBe("PROBLEMA");
     expect(copy.footer.rights).toBe("Todos os direitos reservados");
+  });
+
+  it("keeps the visual theme copy Viking based", () => {
+    const copy = getPortfolioCopy("en");
+
+    expect(copy.meta.ogDescription).toContain("8-bit Viking");
+    expect(copy.hero.avatarLabel).toContain("Viking");
+    expect(copy.footer.gameOver).toContain("SAGA");
   });
 });

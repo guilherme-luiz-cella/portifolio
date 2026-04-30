@@ -5,8 +5,8 @@ export type PortfolioLanguage = (typeof portfolioLanguages)[number];
 export const defaultPortfolioLanguage: PortfolioLanguage = "en";
 
 export const portfolioLanguageLabels: Record<PortfolioLanguage, string> = {
-  en: "ENG",
-  "pt-BR": "PT-BR",
+  en: "EN",
+  "pt-BR": "PT",
 };
 
 export function isPortfolioLanguage(value: string): value is PortfolioLanguage {

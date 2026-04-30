@@ -41,38 +41,38 @@
 }
 
 :root {
-  --background: oklch(0.14 0.04 265);
-  --foreground: oklch(0.95 0.02 180);
-  --card: oklch(0.19 0.05 265);
-  --card-foreground: oklch(0.95 0.02 180);
-  --popover: oklch(0.19 0.05 265);
-  --popover-foreground: oklch(0.95 0.02 180);
-  --primary: oklch(0.85 0.22 145);
-  --primary-foreground: oklch(0.14 0.04 265);
-  --secondary: oklch(0.78 0.18 220);
-  --secondary-foreground: oklch(0.14 0.04 265);
-  --muted: oklch(0.25 0.04 265);
-  --muted-foreground: oklch(0.7 0.04 220);
-  --accent: oklch(0.7 0.28 330);
-  --accent-foreground: oklch(0.98 0.01 180);
-  --destructive: oklch(0.65 0.25 25);
-  --destructive-foreground: oklch(0.98 0.01 180);
-  --border: oklch(0.35 0.08 220);
-  --input: oklch(0.25 0.04 265);
-  --ring: oklch(0.85 0.22 145);
+  --background: oklch(0.13 0.035 235);
+  --foreground: oklch(0.93 0.03 82);
+  --card: oklch(0.2 0.045 245);
+  --card-foreground: oklch(0.93 0.03 82);
+  --popover: oklch(0.2 0.045 245);
+  --popover-foreground: oklch(0.93 0.03 82);
+  --primary: oklch(0.82 0.16 82);
+  --primary-foreground: oklch(0.15 0.045 235);
+  --secondary: oklch(0.74 0.12 210);
+  --secondary-foreground: oklch(0.13 0.035 235);
+  --muted: oklch(0.27 0.045 245);
+  --muted-foreground: oklch(0.74 0.04 92);
+  --accent: oklch(0.59 0.18 28);
+  --accent-foreground: oklch(0.96 0.03 82);
+  --destructive: oklch(0.58 0.22 28);
+  --destructive-foreground: oklch(0.96 0.03 82);
+  --border: oklch(0.39 0.08 80);
+  --input: oklch(0.25 0.045 245);
+  --ring: oklch(0.82 0.16 82);
 
-  --neon-green: oklch(0.85 0.22 145);
-  --neon-cyan: oklch(0.82 0.16 210);
-  --neon-magenta: oklch(0.7 0.28 330);
-  --neon-yellow: oklch(0.9 0.18 95);
-  --neon-red: oklch(0.7 0.25 25);
-  --panel: oklch(0.19 0.05 265);
-  --panel-border: oklch(0.4 0.08 220);
+  --neon-green: oklch(0.83 0.15 82);
+  --neon-cyan: oklch(0.78 0.12 210);
+  --neon-magenta: oklch(0.6 0.18 28);
+  --neon-yellow: oklch(0.88 0.17 92);
+  --neon-red: oklch(0.58 0.22 28);
+  --panel: oklch(0.2 0.045 245);
+  --panel-border: oklch(0.47 0.1 78);
 }
 
 .dark {
-  --background: oklch(0.14 0.04 265);
-  --foreground: oklch(0.95 0.02 180);
+  --background: oklch(0.13 0.035 235);
+  --foreground: oklch(0.93 0.03 82);
 }
 
 @layer base {
@@ -84,25 +84,44 @@
   }
   body {
     background-color: var(--color-background);
+    background-image:
+      linear-gradient(rgba(235, 190, 95, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(95, 190, 235, 0.04) 1px, transparent 1px),
+      linear-gradient(135deg, rgba(116, 72, 34, 0.22) 0 12px, transparent 12px 24px);
+    background-size:
+      24px 24px,
+      24px 24px,
+      48px 48px;
     color: var(--color-foreground);
     font-family: var(--font-body);
     image-rendering: pixelated;
     overflow-x: hidden;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-pixel);
     line-height: 1.4;
   }
   ::selection {
-    background: var(--neon-magenta);
+    background: var(--neon-yellow);
     color: var(--background);
   }
 }
 
 @layer utilities {
-  .font-pixel { font-family: var(--font-pixel); }
-  .font-mono-retro { font-family: var(--font-mono); }
-  .font-body { font-family: var(--font-body); }
+  .font-pixel {
+    font-family: var(--font-pixel);
+  }
+  .font-mono-retro {
+    font-family: var(--font-mono);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
 
   /* Pixel border (chunky 8-bit frame) */
   .pixel-border {
@@ -144,10 +163,18 @@
   /* Notched corners using clip-path for 8-bit feel */
   .pixel-corners {
     clip-path: polygon(
-      0 8px, 8px 8px, 8px 0,
-      calc(100% - 8px) 0, calc(100% - 8px) 8px, 100% 8px,
-      100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px), calc(100% - 8px) 100%,
-      8px 100%, 8px calc(100% - 8px), 0 calc(100% - 8px)
+      0 8px,
+      8px 8px,
+      8px 0,
+      calc(100% - 8px) 0,
+      calc(100% - 8px) 8px,
+      100% 8px,
+      100% calc(100% - 8px),
+      calc(100% - 8px) calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      8px 100%,
+      8px calc(100% - 8px),
+      0 calc(100% - 8px)
     );
   }
 
@@ -162,56 +189,102 @@
     );
   }
 
-  /* Subtle grid bg */
+  /* Rune-grid fjord backdrop */
   .pixel-grid-bg {
     background-image:
-      linear-gradient(rgba(120, 200, 255, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(120, 200, 255, 0.06) 1px, transparent 1px);
-    background-size: 32px 32px;
+      linear-gradient(rgba(235, 190, 95, 0.1) 2px, transparent 2px),
+      linear-gradient(90deg, rgba(125, 210, 235, 0.08) 2px, transparent 2px),
+      linear-gradient(
+        45deg,
+        rgba(124, 78, 38, 0.18) 25%,
+        transparent 25% 50%,
+        rgba(124, 78, 38, 0.18) 50% 75%,
+        transparent 75%
+      );
+    background-size:
+      32px 32px,
+      32px 32px,
+      64px 64px;
+  }
+
+  .rune-stone {
+    clip-path: polygon(
+      0 8px,
+      8px 8px,
+      8px 0,
+      calc(100% - 8px) 0,
+      calc(100% - 8px) 8px,
+      100% 8px,
+      100% 100%,
+      0 100%
+    );
+    box-shadow:
+      inset 0 -4px 0 rgba(0, 0, 0, 0.35),
+      0 0 0 4px color-mix(in oklab, var(--neon-yellow) 70%, transparent);
   }
 
   .text-shadow-glow-green {
-    text-shadow: 0 0 8px color-mix(in oklab, var(--neon-green) 70%, transparent),
-                 0 0 2px var(--neon-green);
+    text-shadow:
+      0 0 8px color-mix(in oklab, var(--neon-green) 70%, transparent),
+      0 0 2px var(--neon-green);
   }
   .text-shadow-glow-cyan {
-    text-shadow: 0 0 8px color-mix(in oklab, var(--neon-cyan) 70%, transparent),
-                 0 0 2px var(--neon-cyan);
+    text-shadow:
+      0 0 8px color-mix(in oklab, var(--neon-cyan) 70%, transparent),
+      0 0 2px var(--neon-cyan);
   }
   .text-shadow-glow-magenta {
-    text-shadow: 0 0 8px color-mix(in oklab, var(--neon-magenta) 70%, transparent),
-                 0 0 2px var(--neon-magenta);
+    text-shadow:
+      0 0 8px color-mix(in oklab, var(--neon-magenta) 70%, transparent),
+      0 0 2px var(--neon-magenta);
   }
   .text-shadow-glow-yellow {
-    text-shadow: 0 0 8px color-mix(in oklab, var(--neon-yellow) 70%, transparent),
-                 0 0 2px var(--neon-yellow);
+    text-shadow:
+      0 0 8px color-mix(in oklab, var(--neon-yellow) 70%, transparent),
+      0 0 2px var(--neon-yellow);
   }
 
   .blink {
     animation: blink-anim 1s steps(2, start) infinite;
   }
   @keyframes blink-anim {
-    to { visibility: hidden; }
+    to {
+      visibility: hidden;
+    }
   }
 
   .press-start-pulse {
     animation: press-pulse 1.4s ease-in-out infinite;
   }
   @keyframes press-pulse {
-    0%, 100% { opacity: 1; transform: translateY(0); }
-    50% { opacity: 0.5; transform: translateY(2px); }
+    0%,
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateY(2px);
+    }
   }
 
   .float-slow {
     animation: float-slow 4s ease-in-out infinite;
   }
   @keyframes float-slow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
   }
 
   .pixel-hover {
-    transition: transform 0.15s steps(3, end), box-shadow 0.15s steps(3, end);
+    transition:
+      transform 0.15s steps(3, end),
+      box-shadow 0.15s steps(3, end);
   }
   .pixel-hover:hover {
     transform: translate(-2px, -2px);
@@ -221,34 +294,52 @@
     animation: loading-fill 2.4s steps(20, end) forwards;
   }
   @keyframes loading-fill {
-    from { width: 0%; }
-    to { width: 100%; }
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
   }
 
   .boot-fade-out {
     animation: boot-fade 0.6s ease-out 2.6s forwards;
   }
   @keyframes boot-fade {
-    to { opacity: 0; visibility: hidden; }
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 
   .scanline-sweep {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(to bottom, transparent 0%, rgba(120, 255, 180, 0.04) 50%, transparent 100%);
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(235, 190, 95, 0.05) 50%,
+      transparent 100%
+    );
     background-size: 100% 8px;
     animation: scan 6s linear infinite;
   }
   @keyframes scan {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 100vh; }
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 100vh;
+    }
   }
 
   .reveal-up {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out;
   }
   .reveal-up.in-view {
     opacity: 1;

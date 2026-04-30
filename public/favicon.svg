@@ -1,40 +1,49 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
   <style>
-    .screen { fill: #07110d; }
-    .frame { fill: #39ff14; animation: framePulse 1.2s steps(2, end) infinite; }
-    .shadow { fill: #00f5ff; animation: shadowShift 0.8s steps(2, end) infinite; }
-    .spark { fill: #ff2bd6; animation: sparkBlink 0.6s steps(2, end) infinite; }
-    .letter { fill: #f7ff3c; animation: letterBlink 1s steps(2, end) infinite; }
+    .sky { fill: #101827; }
+    .frost { fill: #83d6f2; animation: frostPulse 1.4s steps(2, end) infinite; }
+    .gold { fill: #f0c45c; animation: goldPulse 1.2s steps(2, end) infinite; }
+    .iron { fill: #687384; }
+    .shadow { fill: #3a2118; }
+    .rune { fill: #c75b3b; animation: runeBlink 0.8s steps(2, end) infinite; }
 
-    @keyframes framePulse {
-      0%, 100% { fill: #39ff14; }
-      50% { fill: #00f5ff; }
+    @keyframes frostPulse {
+      0%, 100% { fill: #83d6f2; }
+      50% { fill: #b8f2ff; }
     }
 
-    @keyframes shadowShift {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(2px, 2px); }
+    @keyframes goldPulse {
+      0%, 100% { fill: #f0c45c; }
+      50% { fill: #fff0a3; }
     }
 
-    @keyframes sparkBlink {
-      0%, 40% { opacity: 1; }
-      41%, 100% { opacity: 0; }
-    }
-
-    @keyframes letterBlink {
-      0%, 100% { fill: #f7ff3c; }
-      50% { fill: #ffffff; }
+    @keyframes runeBlink {
+      0%, 45% { opacity: 1; }
+      46%, 100% { opacity: 0.45; }
     }
   </style>
 
-  <rect width="64" height="64" class="screen" />
-  <path class="shadow" d="M14 10h36v6h4v34h-6v4H12v-6H8V14h6z" />
-  <path class="frame" d="M10 8h38v6h6v38h-6v6H10v-6H4V14h6z" />
-  <rect x="14" y="18" width="36" height="28" class="screen" />
+  <rect width="64" height="64" class="sky" />
+  <rect x="6" y="50" width="52" height="6" class="shadow" />
 
-  <path class="letter" d="M18 24h14v4H22v12h10v-4h-6v-4h10v12H18z" />
-  <path class="letter" d="M40 24h8v4h-6v12h6v4h-8v-4h-4V28h4z" />
+  <rect x="20" y="20" width="24" height="10" class="iron" />
+  <rect x="16" y="24" width="32" height="8" class="iron" />
+  <rect x="24" y="16" width="16" height="8" class="gold" />
+  <rect x="30" y="14" width="4" height="22" class="gold" />
 
-  <rect x="8" y="8" width="4" height="4" class="spark" />
-  <rect x="52" y="52" width="4" height="4" class="spark" />
+  <rect x="8" y="16" width="8" height="6" class="frost" />
+  <rect x="12" y="22" width="8" height="6" class="frost" />
+  <rect x="16" y="28" width="8" height="4" class="frost" />
+  <rect x="48" y="16" width="8" height="6" class="frost" />
+  <rect x="44" y="22" width="8" height="6" class="frost" />
+  <rect x="40" y="28" width="8" height="4" class="frost" />
+
+  <rect x="18" y="32" width="28" height="16" class="gold" />
+  <rect x="22" y="36" width="6" height="4" class="sky" />
+  <rect x="36" y="36" width="6" height="4" class="sky" />
+  <rect x="26" y="44" width="12" height="4" class="shadow" />
+
+  <rect x="10" y="8" width="4" height="4" class="rune" />
+  <rect x="50" y="8" width="4" height="4" class="rune" />
+  <rect x="30" y="54" width="4" height="4" class="rune" />
 </svg>

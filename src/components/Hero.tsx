@@ -22,14 +22,14 @@ export function Hero() {
       className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden pixel-grid-bg"
     >
       <div className="scanline-sweep" />
-      {/* Floating pixel decorations */}
-      <div className="absolute top-32 left-8 w-4 h-4 bg-neon-magenta float-slow hidden sm:block" />
+      {/* Floating 8-bit rune stones */}
+      <div className="absolute top-32 left-8 w-7 h-9 bg-neon-magenta rune-stone float-slow hidden sm:block" />
       <div
-        className="absolute top-1/2 right-12 w-6 h-6 bg-neon-cyan float-slow hidden sm:block"
+        className="absolute top-1/2 right-12 w-8 h-10 bg-neon-cyan rune-stone float-slow hidden sm:block"
         style={{ animationDelay: "1s" }}
       />
       <div
-        className="absolute bottom-24 left-1/4 w-3 h-3 bg-neon-yellow float-slow hidden sm:block"
+        className="absolute bottom-24 left-1/4 w-6 h-8 bg-neon-yellow rune-stone float-slow hidden sm:block"
         style={{ animationDelay: "2s" }}
       />
 
@@ -102,30 +102,30 @@ export function Hero() {
 }
 
 function PixelAvatar({ label }: { label: string }) {
-  // Tiny 8-bit dev avatar built from CSS grid pixels
+  // Tiny 8-bit Viking dev avatar built from CSS grid pixels.
   // 12x14 grid
   const G = "bg-transparent";
-  const S = "bg-neon-green/90"; // skin/outline
-  const H = "bg-neon-magenta"; // hair
+  const S = "bg-[#d2a16f]"; // skin
+  const H = "bg-neon-yellow"; // horns/beard
   const E = "bg-foreground"; // eyes
-  const C = "bg-neon-cyan"; // shirt
-  const Y = "bg-neon-yellow"; // accent
+  const C = "bg-neon-cyan"; // armor
+  const Y = "bg-neon-magenta"; // helmet/runes
 
   const grid = [
-    [G, G, G, H, H, H, H, H, H, G, G, G],
+    [H, H, G, G, G, G, G, G, G, G, H, H],
+    [G, H, H, G, G, Y, Y, G, G, H, H, G],
+    [G, G, H, H, Y, Y, Y, Y, H, H, G, G],
+    [G, G, G, Y, Y, Y, Y, Y, Y, G, G, G],
+    [G, G, Y, S, S, S, S, S, S, Y, G, G],
+    [G, H, Y, S, E, S, S, E, S, Y, H, G],
+    [G, H, S, S, S, S, S, S, S, S, H, G],
+    [G, H, H, S, H, S, S, H, S, H, H, G],
     [G, G, H, H, H, H, H, H, H, H, G, G],
-    [G, H, H, H, H, H, H, H, H, H, H, G],
-    [G, H, S, S, S, S, S, S, S, S, H, G],
-    [G, H, S, E, S, S, S, S, E, S, H, G],
-    [G, H, S, S, S, S, S, S, S, S, H, G],
-    [G, H, S, S, Y, S, S, Y, S, S, H, G],
-    [G, H, S, S, S, Y, Y, S, S, S, H, G],
-    [G, G, H, S, S, S, S, S, S, H, G, G],
     [G, C, C, C, C, C, C, C, C, C, C, G],
-    [C, C, Y, C, C, C, C, C, C, Y, C, C],
+    [C, C, Y, C, C, Y, Y, C, C, Y, C, C],
     [C, C, C, C, C, C, C, C, C, C, C, C],
     [C, G, C, C, C, G, G, C, C, C, G, C],
-    [C, G, C, C, G, G, G, G, C, C, G, C],
+    [G, G, C, C, G, G, G, G, C, C, G, G],
   ];
 
   return (

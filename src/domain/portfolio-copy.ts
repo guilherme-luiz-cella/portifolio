@@ -111,7 +111,7 @@ export const portfolioCopy: Record<PortfolioLanguage, PortfolioCopy> = {
         "Back-End Developer building reliable systems with Laravel, PHP, MySQL and APIs. Explore projects, skills and experience.",
       ogTitle: "Guilherme Luiz Cella - Back-End Developer",
       ogDescription:
-        "Retro 8-bit portfolio of a Back-End Developer specialized in Laravel, PHP, MySQL and APIs.",
+        "8-bit Viking portfolio of a Back-End Developer forging reliable Laravel, PHP, MySQL and API systems.",
     },
     notFound: {
       title: "Page not found",
@@ -131,24 +131,24 @@ export const portfolioCopy: Record<PortfolioLanguage, PortfolioCopy> = {
       title: "Language",
     },
     boot: {
-      title: "GLC-OS v1.0",
-      line: "Booting portfolio",
-      detail: "Loading assets... mounting modules... ok",
+      title: "GLC-RUNE OS v1.0",
+      line: "Lighting the longhouse",
+      detail: "Sharpening APIs... raising sails... ok",
       loadingLabel: "Loading",
-      ready: "PRESS START WHEN READY",
+      ready: "RAISE SHIELD WHEN READY",
     },
     hero: {
-      status: "PLAYER 1 - READY",
+      status: "JARL 1 - READY",
       role: "< BACK-END DEVELOPER />",
-      typed: "Building reliable systems with Laravel, PHP, MySQL, and APIs.",
-      primaryAction: "PRESS START",
+      typed: "Forging reliable systems with Laravel, PHP, MySQL, and APIs.",
+      primaryAction: "RAISE SHIELD",
       contactAction: "CONTACT ME",
-      avatarLabel: "Pixel art avatar of Guilherme",
+      avatarLabel: "8-bit Viking avatar of Guilherme",
     },
     about: {
-      label: "QUEST 01",
-      title: "ABOUT THE PLAYER",
-      bioLabel: "CHARACTER BIO",
+      label: "RUNE 01",
+      title: "ABOUT THE JARL",
+      bioLabel: "SAGA LOG",
       paragraphs: [
         {
           before: "I'm a ",
@@ -332,9 +332,9 @@ export const portfolioCopy: Record<PortfolioLanguage, PortfolioCopy> = {
       ],
     },
     contact: {
-      label: "FINAL BOSS",
-      title: "START THE NEXT QUEST",
-      transmission: "TRANSMISSION",
+      label: "FROST GATE",
+      title: "START THE NEXT RAID",
+      transmission: "RUNE MESSAGE",
       heading: "LET'S BUILD\nSOMETHING GREAT",
       body: "Open to back-end roles, freelance missions and collaboration on ambitious systems. Reach out - I respond fast.",
       facts: [
@@ -351,7 +351,7 @@ export const portfolioCopy: Record<PortfolioLanguage, PortfolioCopy> = {
     footer: {
       stack: "Back-End Developer - Laravel - PHP - MySQL",
       rights: "All rights reserved",
-      gameOver: "GAME OVER - INSERT COIN TO CONTINUE",
+      gameOver: "SAGA SAVED - INSERT RUNE TO CONTINUE",
     },
   },
   "pt-BR": {
@@ -361,7 +361,7 @@ export const portfolioCopy: Record<PortfolioLanguage, PortfolioCopy> = {
         "Desenvolvedor Back-End criando sistemas confiaveis com Laravel, PHP, MySQL e APIs. Explore projetos, habilidades e experiencia.",
       ogTitle: "Guilherme Luiz Cella - Desenvolvedor Back-End",
       ogDescription:
-        "Portfolio retro 8-bit de um Desenvolvedor Back-End especializado em Laravel, PHP, MySQL e APIs.",
+        "Portfolio Viking 8-bit de um Desenvolvedor Back-End forjando sistemas confiaveis com Laravel, PHP, MySQL e APIs.",
     },
     notFound: {
       title: "Pagina nao encontrada",
@@ -381,24 +381,24 @@ export const portfolioCopy: Record<PortfolioLanguage, PortfolioCopy> = {
       title: "Idioma",
     },
     boot: {
-      title: "GLC-OS v1.0",
-      line: "Iniciando portfolio",
-      detail: "Carregando assets... montando modulos... ok",
+      title: "GLC-RUNE OS v1.0",
+      line: "Acendendo a longhouse",
+      detail: "Afiando APIs... erguendo velas... ok",
       loadingLabel: "Carregando",
-      ready: "APERTE START QUANDO PRONTO",
+      ready: "ERGA O ESCUDO QUANDO PRONTO",
     },
     hero: {
-      status: "PLAYER 1 - PRONTO",
+      status: "JARL 1 - PRONTO",
       role: "< DESENVOLVEDOR BACK-END />",
-      typed: "Construindo sistemas confiaveis com Laravel, PHP, MySQL e APIs.",
-      primaryAction: "APERTE START",
+      typed: "Forjando sistemas confiaveis com Laravel, PHP, MySQL e APIs.",
+      primaryAction: "ERGA O ESCUDO",
       contactAction: "FALE COMIGO",
-      avatarLabel: "Avatar pixel art do Guilherme",
+      avatarLabel: "Avatar Viking 8-bit do Guilherme",
     },
     about: {
-      label: "QUEST 01",
-      title: "SOBRE O PLAYER",
-      bioLabel: "BIO DO PERSONAGEM",
+      label: "RUNE 01",
+      title: "SOBRE O JARL",
+      bioLabel: "REGISTRO DA SAGA",
       paragraphs: [
         {
           before: "Sou ",
@@ -594,9 +594,9 @@ export const portfolioCopy: Record<PortfolioLanguage, PortfolioCopy> = {
       ],
     },
     contact: {
-      label: "BOSS FINAL",
-      title: "INICIE A PROXIMA QUEST",
-      transmission: "TRANSMISSAO",
+      label: "PORTAO DE GELO",
+      title: "INICIE A PROXIMA RAID",
+      transmission: "MENSAGEM RUNICA",
       heading: "VAMOS CONSTRUIR\nALGO GRANDE",
       body: "Aberto a vagas back-end, missoes freelance e colaboracao em sistemas ambiciosos. Entre em contato - respondo rapido.",
       facts: [
@@ -613,7 +613,7 @@ export const portfolioCopy: Record<PortfolioLanguage, PortfolioCopy> = {
     footer: {
       stack: "Desenvolvedor Back-End - Laravel - PHP - MySQL",
       rights: "Todos os direitos reservados",
-      gameOver: "GAME OVER - INSIRA FICHA PARA CONTINUAR",
+      gameOver: "SAGA SALVA - INSIRA RUNA PARA CONTINUAR",
     },
   },
 };
