@@ -1,5 +1,6 @@
 import { usePortfolioCopy } from "@/application/portfolio-language-context";
 import { profileLinks } from "@/lib/profile-links";
+import { VisitorCounter } from "./VisitorCounter";
 
 export function Footer() {
   const copy = usePortfolioCopy();
@@ -43,7 +44,10 @@ export function Footer() {
           <div>
             © {new Date().getFullYear()} Guilherme Luiz Cella - {copy.footer.rights}
           </div>
-          <div className="font-pixel text-[8px] text-neon-green">◆ {copy.footer.gameOver}</div>
+          <div className="flex items-center gap-3">
+            <VisitorCounter />
+            <div className="font-pixel text-[8px] text-neon-green">◆ {copy.footer.gameOver}</div>
+          </div>
         </div>
       </div>
     </footer>

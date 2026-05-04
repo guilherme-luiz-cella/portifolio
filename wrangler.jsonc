@@ -21,4 +21,11 @@
       "enabled": false
     }
   }
+  ,
+  "kv_namespaces": [
+    {
+      "binding": "VISITOR_COUNTER",
+      "id": "<KV_NAMESPACE_ID>"
+    }
+  ]
 }
