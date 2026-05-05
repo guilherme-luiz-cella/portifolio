@@ -291,7 +291,7 @@
   }
 
   .loading-bar {
-    animation: loading-fill 2.4s steps(20, end) forwards;
+    animation: loading-fill 1.8s steps(20, end) forwards;
   }
   @keyframes loading-fill {
     from {
