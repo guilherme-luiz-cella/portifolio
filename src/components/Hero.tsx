@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { usePortfolioCopy } from "@/application/portfolio-language-context";
 import { profileLinks } from "@/lib/profile-links";
+import { VisitorCounter } from "@/components/VisitorCounter";
 
 export function Hero() {
   const copy = usePortfolioCopy();
@@ -82,12 +83,17 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="mt-10 flex gap-6 font-mono-retro text-lg text-muted-foreground">
-            <div>
-              <span className="text-neon-green">HP</span> ████████ 100
+          <div className="mt-10 flex flex-col gap-4">
+            <div className="flex gap-6 font-mono-retro text-lg text-muted-foreground">
+              <div>
+                <span className="text-neon-green">HP</span> ████████ 100
+              </div>
+              <div>
+                <span className="text-neon-cyan">XP</span> ██████░░ 75
+              </div>
             </div>
-            <div>
-              <span className="text-neon-cyan">XP</span> ██████░░ 75
+            <div className="rounded-md border-2 border-neon-green/50 bg-card/80 px-4 py-3 w-fit">
+              <VisitorCounter />
             </div>
           </div>
         </div>
