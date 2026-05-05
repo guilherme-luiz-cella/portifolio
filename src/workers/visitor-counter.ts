@@ -12,7 +12,7 @@ export default {
       return new Response(null, { headers: cors() });
     }
 
-    // Only handle the /api/visitor path when this worker is routed there
+    // Only handle the /api/visitor path when this worker is routed theree
     if (url.pathname !== "/api/visitor") {
       return new Response("Not Found", { status: 404 });
     }
