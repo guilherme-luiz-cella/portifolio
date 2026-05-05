@@ -2,7 +2,7 @@ Cloudflare Worker — Visitor Counter deploy guide
 
 Overview
 --
-This project includes a Cloudflare Worker handler at `src/workers/visitor-counter.ts` that increments a KV key `global_visitor_count` and returns `{ count }` on GET `/api/visitor`.
+This project includes a standalone Cloudflare Worker handler at `src/workers/visitor-counter.ts` that increments a KV key `global_visitor_count` and returns `{ count }` on GET `/api/visitor`.
 
 Prerequisites
 --
@@ -11,16 +11,17 @@ Prerequisites
 
 Steps
 --
-1. Create a KV namespace and bind it to `VISITOR_COUNTER`:
+1. Create a KV namespace and bind it to `VISITOR_COUNT`:
 
 ```bash
 # create the KV namespace and bind it; wrangler will print the namespace id
-wrangler kv:namespace create "visitor_counter" --binding VISITOR_COUNTER
+wrangler kv:namespace create "visitor_counter" --binding VISITOR_COUNT
 ```
 
-If the command doesn't automatically update `wrangler.jsonc`, copy the printed `id` and replace `<KV_NAMESPACE_ID>` in `wrangler.jsonc`.
+If the command doesn't automatically update `visitor-counter.wrangler.jsonc`, copy the printed `id` and replace the KV namespace id there.
+This project currently uses the binding name `VISITOR_COUNT`.
 
-2. (Optional) If you want the Worker to only handle `/api/visitor`, create a Worker route in the Cloudflare dashboard mapping `https://<your-domain>/api/visitor` to this Worker (name `portfolio`), or add an appropriate `routes` entry in `wrangler.jsonc`.
+2. The visitor counter has its own Worker config in `visitor-counter.wrangler.jsonc`, including the route `my.cella.website/api/visitor*`.
 
 3. Build your project (if needed). This repo appears to use Vite/Bun; run your normal build step so worker files are included in the output if your setup bundles them:
 
@@ -30,13 +31,19 @@ npm run build
 bun build
 ```
 
-4. Publish with Wrangler:
+4. Publish the main site with Wrangler:
 
 ```bash
-wrangler publish
+NPM_CONFIG_CACHE="$HOME/.npm-cache" npx --yes wrangler deploy --config wrangler.jsonc
 ```
 
-5. Test the endpoint:
+5. Publish the visitor counter Worker:
+
+```bash
+NPM_CONFIG_CACHE="$HOME/.npm-cache" npx --yes wrangler deploy --config visitor-counter.wrangler.jsonc
+```
+
+6. Test the endpoint:
 
 ```bash
 curl -i https://your-domain.com/api/visitor
