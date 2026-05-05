@@ -24,8 +24,8 @@
   ,
   "kv_namespaces": [
     {
-      "binding": "VISITOR_COUNTER",
-      "id": "<KV_NAMESPACE_ID>"
+      "binding": "VISITOR_COUNT",
+      "id": "bd0ffbb3b3e044c2bbb44f88965a2724"
     }
   ]
 }
