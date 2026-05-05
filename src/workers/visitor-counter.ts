@@ -1,7 +1,7 @@
 type WorkerEnv = {
   VISITOR_COUNT: {
     get(key: string): Promise<string | null>;
-    put(key: string, value: string): Promise<void>;
+    put(key: string, value: string, options?: { expirationTtl?: number }): Promise<void>;
   };
 };
 
@@ -18,16 +18,26 @@ export default {
     }
 
     try {
-      const key = "global_visitor_count";
-      const raw = await env.VISITOR_COUNT.get(key);
-      const prev = Number(raw || "0");
-      const next = prev + 1;
-      await env.VISITOR_COUNT.put(key, String(next));
+      const countKey = "global_visitor_count";
+      const cookies = parseCookies(request.headers.get("Cookie"));
+      const visitorId = cookies.visitor_id;
 
-      return new Response(JSON.stringify({ count: next }), {
-        status: 200,
-        headers: { "Content-Type": "application/json", ...cors() },
-      });
+      const raw = await env.VISITOR_COUNT.get(countKey);
+      const currentCount = Number(raw || "0");
+
+      if (visitorId) {
+        return jsonResponse({ count: currentCount, counted: false });
+      }
+
+      const next = currentCount + 1;
+      await env.VISITOR_COUNT.put(countKey, String(next));
+
+      return jsonResponse(
+        { count: next, counted: true },
+        {
+          "Set-Cookie": buildVisitorCookie(url.protocol === "https:"),
+        },
+      );
     } catch (e) {
       return new Response(JSON.stringify({ error: String(e) }), {
         status: 500,
@@ -43,4 +53,31 @@ function cors() {
     "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
   };
+}
+
+function parseCookies(cookieHeader: string | null) {
+  if (!cookieHeader) return {} as Record<string, string>;
+
+  return cookieHeader.split(";").reduce<Record<string, string>>((accumulator, part) => {
+    const [rawName, ...rawValue] = part.trim().split("=");
+    if (!rawName) return accumulator;
+    accumulator[rawName] = rawValue.join("=");
+    return accumulator;
+  }, {});
+}
+
+function buildVisitorCookie(isSecure: boolean) {
+  const visitorId = crypto.randomUUID();
+  return `visitor_id=${visitorId}; Path=/; Max-Age=${60 * 60 * 24 * 365}; SameSite=Lax${isSecure ? "; Secure" : ""}`;
+}
+
+function jsonResponse(body: unknown, extraHeaders: Record<string, string> = {}) {
+  return new Response(JSON.stringify(body), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+      ...cors(),
+      ...extraHeaders,
+    },
+  });
 }

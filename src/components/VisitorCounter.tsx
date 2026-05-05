@@ -10,7 +10,7 @@ export function VisitorCounter() {
     let didSet = false;
 
     // Try server-side counter first
-    fetch("/api/visitor", { method: "GET" })
+    fetch("/api/visitor", { method: "GET", credentials: "include" })
       .then((res) => res.ok ? res.json() : Promise.reject(res))
       .then((data) => {
         if (data && typeof data.count === "number") {
